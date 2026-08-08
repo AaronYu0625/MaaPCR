@@ -1,0 +1,10 @@
+{
+  "MFAAvalonia": {
+    "action": {
+      "type": "DoNothing"
+    },
+    "recognition": {
+      "type": "DirectHit"
+    }
+  }
+}

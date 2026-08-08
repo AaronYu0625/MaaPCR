@@ -1,0 +1,59 @@
+{
+    "碎片檢查與滑動迴圈": {
+        "next": [
+            "識別碎片",
+            "識別碎片滑動"
+        ]
+    },
+    "識別碎片": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [],
+                "threshold": [
+                    0.9
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    110,
+                    0,
+                    -65,
+                    -53
+                ]
+            }
+        },
+        "post_delay": 1500,
+        "next": [
+            "購買確認"
+        ]
+    },
+    "識別碎片滑動": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    550,
+                    511,
+                    1,
+                    1
+                ],
+                "end": [
+                    [
+                        557,
+                        294,
+                        1,
+                        1
+                    ]
+                ]
+            }
+        },
+        "post_delay": 1500,
+        "next": [
+            "碎片檢查與滑動迴圈"
+        ]
+    }
+}

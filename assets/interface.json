@@ -1,108 +1,634 @@
 {
-    // 本文件主要定义了通用 UI 的行为和显示内容
-    // 可参考文档和示例添加更多您需要的功能
-    // 文档：https://maafw.xyz/docs/3.3-ProjectInterfaceV2
-    // 示例：https://github.com/MaaXYZ/MaaFramework/blob/main/sample/interface.json
     "interface_version": 2,
-    "name": "MaaXXX",
-    "description": "这是一个使用 MaaFramework 创建的新项目。",
-    "contact": "QQ群: 123456789",
+    "name": "MFAA-PCR",
+    "description": "這是一個使用 MaaFramework 建立的新專案。",
     "license": "MIT",
-    "welcome": "首次使用！欢迎使用 MAA!",
-    // 填写项目地址和版本号可实现自动更新功能
-    "github": "https://github.com/MaaXYZ/MaaPracticeBoilerplate",
+    "welcome": "首次使用！歡迎使用 MAA!",
+    "github": "https://github.com/AaronYu0625/MFAAvalonia-PCR.git",
     "version": "1.0.0",
-    // Mirror酱为第三方分发服务，新项目默认关闭
-    // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
-    // "mirrorchyan_rid": "MaaXXX",
-    // "mirrorchyan_multiplatform": true,
     "controller": [
         {
             "name": "安卓端",
             "type": "Adb",
-            "display_short_side": 720 // 默认缩放分辨率的短边长度
-        },
-        {
-            "name": "桌面端",
-            "type": "Win32",
-            "win32": {
-                "class_regex": ".*",
-                "window_regex": "Visual Studio",
-                // 截图及控制方式，请根据项目实际情况修改
-                // 文档: https://maafw.xyz/docs/2.4-ControlMethods
-                "screencap": "PrintWindow", // 截图方式
-                "mouse": "PostMessageWithCursorPos", // 鼠标控制方式
-                "keyboard": "PostMessageWithCursorPos" // 键盘控制方式
-            }
+            "display_short_side": 720
         }
     ],
     "resource": [
         {
-            "name": "官服",
+            "name": "台服",
             "path": [
                 "./resource"
-            ]
-        },
-        {
-            "name": "B 服",
-            "path": [
-                "./resource"
-                // "./resource_bilibili"
             ]
         }
     ],
-    // 可选的 agent 示例
-    // "agent": {
-    //     "child_exec": "python",
-    //     "child_args": [
-    //         "./agent/main.py"
-    //     ]
-    // },
     "task": [
         {
-            "name": "普通任务",
-            "entry": "MyTask1"
-        },
-        {
-            "name": "选项任务",
-            "entry": "MyTask2",
+            "name": "一般商店",
+            "entry": "商店買一般",
             "option": [
-                "任务选项1"
+                "商店購買項",
+                "商店刷新次數"
             ]
         },
         {
-            "name": "参数任务",
-            "entry": "MyTask3",
+            "name": "地下城角色碎片",
+            "entry": "商店買地下城角色碎片",
             "option": [
-                "任务选项1"
-            ],
-            "pipeline_override": {}
+                "地下城角色碎片購買項",
+                "商店刷新次數"
+            ]
         },
         {
-            "name": "带Custom的任务",
-            "entry": "MyTask4"
+            "name": "競技場角色碎片",
+            "entry": "商店買競技場角色碎片",
+            "option": [
+                "競技場角色碎片購買項",
+                "商店刷新次數"
+            ]
+        },
+        {
+            "name": "公主競技場角色碎片",
+            "entry": "商店買公主競技場角色碎片",
+            "option": [
+                "公主競技場角色碎片購買項",
+                "商店刷新次數"
+            ]
+        },
+        {
+            "name": "戰隊角色碎片",
+            "entry": "商店買戰隊角色碎片",
+            "option": [
+                "戰隊角色碎片購買項",
+                "商店刷新次數"
+            ]
+        },
+        {
+            "name": "角色全部強化",
+            "entry": "全部強化",
+            "option": [
+                "強化完角色LV後執行操作"
+            ]
+        },
+        {
+            "name": "主線劇情",
+            "entry": "主線劇情"
+        },
+        {
+            "name": "小工具-究極煉成刷貫通(需煉成頁面)",
+            "entry": "究極練成詞條"
         }
     ],
     "option": {
-        "任务选项1": {
+        "商店購買項": {
+            "type": "select",
+            "cases": [
+                { 
+		    "name": "只買藥水",
+                    "pipeline_override": {
+                        "一般購買": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": { "expected": ["藥水"] }
+                            },
+			    "action": {
+				"type": "Click",
+                                "param": { "target": [449,169,1,1] }
+                            }
+                        },
+			"重置確認": {
+                            "next": ["一般購買"]
+                        }
+                    }
+		},
+                { 
+		    "name": "只買精煉石",
+                    "pipeline_override": {
+                        "一般購買": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": { "expected": ["精煉石"] }
+                            },
+			    "action": {
+				"type": "Click",
+                                "param": { "target": [681,169,1,1] }
+                            }
+                        },
+			"重置確認": {
+                            "next": ["一般購買"]
+                        }
+                    }
+		},
+                { 
+		    "name": "全買",
+                    "pipeline_override": {
+                        "一般購買": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": { "expected": ["全部"] }
+                            },
+			    "action": {
+				"type": "Click",
+                                "param": { "target": [919,169,1,1] }
+                            }
+                        },
+			"重置確認": {
+                            "next": ["一般購買"]
+                        }
+                    }
+		}
+            ]
+        },
+        "地下城角色碎片購買項": {
             "type": "select",
             "cases": [
                 {
-                    "name": "文本1",
+                    "name": "純(聖誕)",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本1"
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/純_聖誕.png"] }
+                            }
                         }
                     }
                 },
                 {
-                    "name": "文本2",
+                    "name": "杏奈(海盜)",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本2"
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/杏奈_海盜.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "鈴奈(萬聖節)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/鈴奈_萬聖節.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "克蘿依(聖學祭)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/克蘿依_聖學祭.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "步未",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/步未.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "茉莉",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/茉莉.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "美里",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/美里.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "鈴",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/鈴.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "凱留",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/凱留.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "優花梨",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/優花梨.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "茜里",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/茜里.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "空花",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/空花.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "深月",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/深月.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "真步",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/真步.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "望",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/望.png"] }
+                            }
                         }
                     }
                 }
+            ]
+        },
+        "競技場角色碎片購買項": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "栞(遊俠)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/栞_遊俠.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "優衣(夏日)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/優衣_夏日.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "璃乃(聖誕節)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/璃乃_聖誕節.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "碧(工作服)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/碧_工作服.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "七七香",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/七七香.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "日和",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/日和.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "禊",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/禊.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "珠希",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/珠希.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "莫妮卡",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/莫妮卡.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "璃乃",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/璃乃.png"] }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "公主競技場角色碎片購買項": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "千歌(夏日)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/千歌_夏日.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "真琴(灰姑娘)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/真琴_灰姑娘.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "紡希",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/紡希.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "鈴奈",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/鈴奈.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "宮子",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/宮子.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "香織",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/香織.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "初音",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/初音.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "杏奈",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/杏奈.png"] }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "戰隊角色碎片購買項": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "綾音(探險家)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/綾音_探險.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "美咲(舞台)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/美咲_舞台.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "咲戀(聖誕節)",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/咲戀_聖誕節.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "鈴莓",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/鈴莓.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "依里",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/依里.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "千歌",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/千歌.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "真琴",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/真琴.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "伊緒",
+                    "pipeline_override": {
+                        "識別碎片": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["role/伊緒.png"] }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "商店刷新次數": {
+            "type": "select",
+            "cases": [
+                { "name": "不刷新" },
+                {
+                    "name": "無限刷新",
+                    "pipeline_override": {
+                        "刷新次數": {
+                            "next": ["無限刷新"]
+                        }
+                    }
+                }
+            ]
+        },
+        "強化完角色LV後執行操作": {
+            "type": "select",
+            "cases": [
+                { "name": "無" },
+                { "name": "強化技能" },
+                { "name": "穿戴裝備" }
             ]
         }
     }

@@ -1,0 +1,23 @@
+{
+    "一般購買": {
+        "next": [
+            "全部選擇"
+        ]
+    },
+    "全部選擇": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "全部選擇.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "購買確認"
+        ]
+    }
+}

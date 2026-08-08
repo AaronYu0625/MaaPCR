@@ -1,0 +1,192 @@
+{
+    "商店買一般": {
+        "next": [
+            "進入一般商店_頁籤",
+            "進入一般商店_從主頁"
+        ]
+    },
+    "商店買公主競技場角色碎片": {
+        "next": [
+            "進入公主競技場商店_頁籤",
+            "進入公主競技場商店_從主頁"
+        ]
+    },
+    "商店買地下城角色碎片": {
+        "next": [
+            "進入地下城商店_頁籤",
+            "進入地下城商店_從主頁"
+        ]
+    },
+    "商店買戰隊角色碎片": {
+        "next": [
+            "進入戰隊商店_頁籤",
+            "進入戰隊商店_從主頁"
+        ]
+    },
+    "商店買競技場角色碎片": {
+        "next": [
+            "進入競技場商店_頁籤",
+            "進入競技場商店_從主頁"
+        ]
+    },
+    "進入一般商店_從主頁": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "商店.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "進入一般商店_頁籤"
+        ]
+    },
+    "進入一般商店_頁籤": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "一般商店.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "一般購買"
+        ]
+    },
+    "進入公主競技場商店_從主頁": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "商店.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "進入公主競技場商店_頁籤"
+        ]
+    },
+    "進入公主競技場商店_頁籤": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "公主競技場商店.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "碎片檢查與滑動迴圈"
+        ]
+    },
+    "進入地下城商店_從主頁": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "商店.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "進入地下城商店_頁籤"
+        ]
+    },
+    "進入地下城商店_頁籤": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "地下城商店.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "碎片檢查與滑動迴圈"
+        ]
+    },
+    "進入戰隊商店_從主頁": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "商店.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "進入戰隊商店_頁籤"
+        ]
+    },
+    "進入戰隊商店_頁籤": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "戰隊商店.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "碎片檢查與滑動迴圈"
+        ]
+    },
+    "進入競技場商店_從主頁": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "商店.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "進入競技場商店_頁籤"
+        ]
+    },
+    "進入競技場商店_頁籤": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "競技場商店.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "碎片檢查與滑動迴圈"
+        ]
+    }
+}

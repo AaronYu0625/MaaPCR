@@ -1,0 +1,67 @@
+{
+    "購買確認": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "一次購買.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    995,
+                    583,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "購買確認2"
+        ]
+    },
+    "購買確認2": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "確認.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "購買確認3"
+        ]
+    },
+    "購買確認3": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "購買完成.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    647,
+                    640,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1200,
+        "next": [
+            "刷新次數"
+        ]
+    }
+}
