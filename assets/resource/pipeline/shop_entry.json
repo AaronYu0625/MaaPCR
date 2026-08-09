@@ -49,6 +49,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
+                "roi": [
+                    123,
+                    72,
+                    567,
+                    41
+                ],
                 "template": [
                     "一般商店.png"
                 ]

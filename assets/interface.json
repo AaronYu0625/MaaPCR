@@ -63,19 +63,11 @@
             ]
         },
         {
-            "name": "角色全部強化",
-            "entry": "全部強化",
+            "name": "小工具-究極煉成刷詞條(需煉成頁面)",
+            "entry": "究極鍊成詞條",
             "option": [
-                "強化完角色LV後執行操作"
+                "詞條選擇"
             ]
-        },
-        {
-            "name": "主線劇情",
-            "entry": "主線劇情"
-        },
-        {
-            "name": "小工具-究極煉成刷貫通(需煉成頁面)",
-            "entry": "究極練成詞條"
         }
     ],
     "option": {
@@ -83,38 +75,38 @@
             "type": "select",
             "cases": [
                 { 
-		    "name": "只買藥水",
-                    "pipeline_override": {
-                        "一般購買": {
-                            "recognition": {
-                                "type": "OCR",
-                                "param": { "expected": ["藥水"] }
+					"name": "只買藥水",
+					"pipeline_override": {
+						"一般購買": {
+                           "recognition": {
+								"type": "OCR",
+								"param": { "expected": ["藥水"] }
                             },
-			    "action": {
-				"type": "Click",
-                                "param": { "target": [449,169,1,1] }
+							"action": {
+								"type": "Click",
+								"param": { "target": [449,169,1,1] }
                             }
                         },
-			"重置確認": {
-                            "next": ["一般購買"]
+						"重置確認": {
+                            "next": ["全部選擇"]
                         }
                     }
 		},
                 { 
-		    "name": "只買精煉石",
+					"name": "只買精煉石",
                     "pipeline_override": {
                         "一般購買": {
                             "recognition": {
                                 "type": "OCR",
                                 "param": { "expected": ["精煉石"] }
                             },
-			    "action": {
-				"type": "Click",
+							"action": {
+								"type": "Click",
                                 "param": { "target": [681,169,1,1] }
                             }
                         },
-			"重置確認": {
-                            "next": ["一般購買"]
+						"重置確認": {
+                            "next": ["全部選擇"]
                         }
                     }
 		},
@@ -132,7 +124,7 @@
                             }
                         },
 			"重置確認": {
-                            "next": ["一般購買"]
+                            "next": ["全部選擇"]
                         }
                     }
 		}
@@ -609,6 +601,94 @@
                 }
             ]
         },
+        "詞條選擇": {
+            "type": "select",
+            "cases": [
+                { "name": "貫通5" },
+                {
+                    "name": "貫通3",
+                    "pipeline_override": {
+                        "判斷第一格數值": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["數值3.png"] }
+                            }
+                        },
+                        "判斷第二格數值": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["數值3.png"] }
+                            }
+                        },
+                        "判斷第三格數值": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["數值3.png"] }
+                            }
+                        },
+                        "判斷第四格數值": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["數值3.png"] }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "TP上升3",
+                    "pipeline_override": {
+                        "判斷第一格詞條": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["TP上升.png"] }
+                            }
+                        },
+                        "判斷第一格數值": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["數值3.png"] }
+                            }
+                        },
+                        "判斷第二格詞條": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["TP上升.png"] }
+                            }
+                        },
+                        "判斷第二格數值": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["數值3.png"] }
+                            }
+                        },
+                        "判斷第三格詞條": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["TP上升.png"] }
+                            }
+                        },
+                        "判斷第三格數值": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["數值3.png"] }
+                            }
+                        },
+                        "判斷第四格詞條": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["TP上升.png"] }
+                            }
+                        },
+                        "判斷第四格數值": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": { "template": ["數值3.png"] }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "商店刷新次數": {
             "type": "select",
             "cases": [
@@ -621,14 +701,6 @@
                         }
                     }
                 }
-            ]
-        },
-        "強化完角色LV後執行操作": {
-            "type": "select",
-            "cases": [
-                { "name": "無" },
-                { "name": "強化技能" },
-                { "name": "穿戴裝備" }
             ]
         }
     }
