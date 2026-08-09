@@ -73,6 +73,11 @@ jobs:
       matrix:
         os: [win, macos, linux]
         arch: [aarch64, x86_64]
+        exclude:
+          - os: win
+            arch: aarch64          # 排除 win-aarch64
+          - os: linux
+            arch: aarch64          # 排除 linux-aarch64
       fail-fast: false
 
     steps:
