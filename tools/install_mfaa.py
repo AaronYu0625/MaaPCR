@@ -1,6 +1,7 @@
 import shutil
 import sys
 from pathlib import Path
+from configure import configure_ocr_model
 
 try:
     import jsonc
@@ -100,6 +101,9 @@ def install_deps():
 
 
 def install_resource():
+    
+    configure_ocr_model()
+    
     shutil.copytree(
         working_dir / "assets" / "resource",
         install_path / "resource",
