@@ -80,7 +80,7 @@ jobs:
         with:
           submodules: true
 
-- name: Download MaaFramework
+      - name: Download MaaFramework
         uses: robinraju/release-downloader@v1
         with:
           repository: MaaXYZ/MaaFramework
