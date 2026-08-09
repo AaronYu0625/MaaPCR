@@ -80,7 +80,7 @@ jobs:
         with:
           submodules: true
 
-      - name: Download MaaFramework
+- name: Download MaaFramework
         uses: robinraju/release-downloader@v1
         with:
           repository: MaaXYZ/MaaFramework
@@ -88,6 +88,17 @@ jobs:
           latest: ${{ env.MAAFW_VERSION == '' }}
           tag: ${{ env.MAAFW_VERSION }}
           out-file-path: "deps"
+          extract: true
+
+      - name: Download MFAAvalonia
+        id: download_mfa
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: SweetSmellFox/MFAAvalonia
+          fileName: "MFAAvalonia-*-${{ (matrix.os == 'win' && 'win') || (matrix.os == 'macos' && 'osx') || (matrix.os == 'linux' && 'linux') }}-${{ (matrix.arch == 'x86_64' && 'x64') || (matrix.arch == 'aarch64' && 'arm64') }}*"
+          latest: ${{ env.MFAA_VERSION == '' }}
+          tag: ${{ env.MFAA_VERSION }}
+          out-file-path: "MFAA"
           extract: true
 
       - name: Download MXU
@@ -100,7 +111,7 @@ jobs:
           tag: ${{ env.MXU_VERSION }}
           out-file-path: "MXU"
           extract: true
-
+          
       - name: Remove built-in runtimes
         shell: bash
         run: |
