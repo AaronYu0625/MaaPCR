@@ -139,7 +139,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: MaaPCR-${{ matrix.os }}-${{ matrix.arch }}-MFAA
-          path: "install-mfaa"
+          path: "install"
 
       - uses: actions/upload-artifact@v4
         with:
