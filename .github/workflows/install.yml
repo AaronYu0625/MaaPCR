@@ -138,12 +138,12 @@ jobs:
       # 分開上傳兩個 Artifact
       - uses: actions/upload-artifact@v4
         with:
-          name: MFAAvalonia-PCR-${{ matrix.os }}-${{ matrix.arch }}-MFAA
+          name: MaaPCR-${{ matrix.os }}-${{ matrix.arch }}-MFAA
           path: "install-mfaa"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MFAAvalonia-PCR-${{ matrix.os }}-${{ matrix.arch }}-MXU
+          name: MaaPCR-${{ matrix.os }}-${{ matrix.arch }}-MXU
           path: "install-mxu"
 
   changelog:

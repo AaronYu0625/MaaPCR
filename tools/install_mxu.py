@@ -23,22 +23,6 @@ os_name = sys.argv[2]
 arch = sys.argv[3]
 
 
-def get_dotnet_platform_tag():
-    if os_name == "win" and arch == "x86_64":
-        return "win-x64"
-    elif os_name == "win" and arch == "aarch64":
-        return "win-arm64"
-    elif os_name == "macos" and arch == "x86_64":
-        return "osx-x64"
-    elif os_name == "macos" and arch == "aarch64":
-        return "osx-arm64"
-    elif os_name == "linux" and arch == "x86_64":
-        return "linux-x64"
-    elif os_name == "linux" and arch == "aarch64":
-        return "linux-arm64"
-    sys.exit(1)
-
-
 def install_mxu_ui():
     mxu_src = working_dir / "MXU"
     if not mxu_src.exists():
@@ -72,37 +56,15 @@ def install_mxu_ui():
 
 def install_deps():
     if not (working_dir / "deps" / "bin").exists():
+        print('Please download MaaFramework to "deps" first.')
         sys.exit(1)
 
-    if os_name == "android":
-        shutil.copytree(
-            working_dir / "deps" / "bin", install_path, dirs_exist_ok=True
-        )
-    else:
-        shutil.copytree(
-            working_dir / "deps" / "bin",
-            install_path / "runtimes" / get_dotnet_platform_tag() / "native",
-            ignore=shutil.ignore_patterns(
-                "*MaaDbgControlUnit*",
-                "*MaaThriftControlUnit*",
-                "*MaaRpc*",
-                "*MaaHttp*",
-                "plugins",
-                "*.node",
-                "*MaaPiCli*",
-            ),
-            dirs_exist_ok=True,
-        )
-        shutil.copytree(
-            working_dir / "deps" / "share" / "MaaAgentBinary",
-            install_path / "libs" / "MaaAgentBinary",
-            dirs_exist_ok=True,
-        )
-        shutil.copytree(
-            working_dir / "deps" / "bin" / "plugins",
-            install_path / "plugins" / get_dotnet_platform_tag(),
-            dirs_exist_ok=True,
-        )
+    # 直接將 MaaFramework bin 下的所有核心檔案複製到 install-mxu/maafw/
+    shutil.copytree(
+        working_dir / "deps" / "bin",
+        install_path / "maafw",
+        dirs_exist_ok=True,
+    )
 
 
 def install_resource():
