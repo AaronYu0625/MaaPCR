@@ -103,6 +103,7 @@ jobs:
 
       - name: Download MXU
         id: download_mxu
+        if: !(matrix.os == 'linux' && matrix.arch == 'aarch64')
         uses: robinraju/release-downloader@v1
         with:
           repository: MistEO/MXU
@@ -127,6 +128,7 @@ jobs:
           cd ..
 
       - name: Build MXU Package
+        if: !(matrix.os == 'linux' && matrix.arch == 'aarch64')
         shell: bash
         run: |
           cd tools/
