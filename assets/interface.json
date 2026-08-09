@@ -1,9 +1,9 @@
 {
     "interface_version": 2,
-    "name": "MFAA-PCR",
+    "name": "MaaPCR",
     "description": "這是一個使用 MaaFramework 建立的新專案。",
     "license": "MIT",
-    "welcome": "首次使用！歡迎使用 MAA!",
+    "welcome": "首次使用！歡迎使用 MaaPCR!",
     "github": "https://github.com/AaronYu0625/MFAAvalonia-PCR.git",
     "version": "1.0.0",
     "controller": [
