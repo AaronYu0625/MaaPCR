@@ -1,11 +1,11 @@
 {
     "interface_version": 2,
-    "name": "MFAA-PCR",
-    "description": "這是一個使用 MaaFramework 建立的新專案。",
-    "license": "MIT",
-    "welcome": "首次使用！歡迎使用 MAA!",
-    "github": "https://github.com/AaronYu0625/MFAAvalonia-PCR.git",
-    "version": "1.0.0",
+    "name": "MaaPCR",
+    "description": "基於 MaaFramework 所提供的項目模板，由AaronYu0625開發的Maa公主連結小助手。",
+    "license": "./LICENSE",
+    "welcome": "首次使用！歡迎使用 MaaPCR!",
+    "github": "https://github.com/AaronYu0625/MaaPCR.git",
+    "version": "v1.0.1-beta",
     "controller": [
         {
             "name": "安卓端",
@@ -15,7 +15,7 @@
     ],
     "resource": [
         {
-            "name": "台服",
+            "name": "繁中服(台服)",
             "path": [
                 "./resource"
             ]
@@ -63,7 +63,7 @@
             ]
         },
         {
-            "name": "小工具-究極煉成刷詞條(需煉成頁面)",
+            "name": "EX裝備刷詞條(需於究極鍊成頁面)",
             "entry": "究極鍊成詞條",
             "option": [
                 "詞條選擇"
@@ -74,60 +74,99 @@
         "商店購買項": {
             "type": "select",
             "cases": [
-                { 
-					"name": "只買藥水",
-					"pipeline_override": {
-						"一般購買": {
-                           "recognition": {
-								"type": "OCR",
-								"param": { "expected": ["藥水"] }
-                            },
-							"action": {
-								"type": "Click",
-								"param": { "target": [449,169,1,1] }
-                            }
-                        },
-						"重置確認": {
-                            "next": ["全部選擇"]
-                        }
-                    }
-		},
-                { 
-					"name": "只買精煉石",
+                {
+                    "name": "只買藥水",
                     "pipeline_override": {
                         "一般購買": {
                             "recognition": {
                                 "type": "OCR",
-                                "param": { "expected": ["精煉石"] }
+                                "param": {
+                                    "expected": [
+                                        "藥水"
+                                    ]
+                                }
                             },
-							"action": {
-								"type": "Click",
-                                "param": { "target": [681,169,1,1] }
+                            "action": {
+                                "type": "Click",
+                                "param": {
+                                    "target": [
+                                        449,
+                                        169,
+                                        1,
+                                        1
+                                    ]
+                                }
                             }
                         },
-						"重置確認": {
-                            "next": ["全部選擇"]
+                        "重置確認": {
+                            "next": [
+                                "全部選擇"
+                            ]
                         }
                     }
-		},
-                { 
-		    "name": "全買",
+                },
+                {
+                    "name": "只買精煉石",
                     "pipeline_override": {
                         "一般購買": {
                             "recognition": {
                                 "type": "OCR",
-                                "param": { "expected": ["全部"] }
+                                "param": {
+                                    "expected": [
+                                        "精煉石"
+                                    ]
+                                }
                             },
-			    "action": {
-				"type": "Click",
-                                "param": { "target": [919,169,1,1] }
+                            "action": {
+                                "type": "Click",
+                                "param": {
+                                    "target": [
+                                        681,
+                                        169,
+                                        1,
+                                        1
+                                    ]
+                                }
                             }
                         },
-			"重置確認": {
-                            "next": ["全部選擇"]
+                        "重置確認": {
+                            "next": [
+                                "全部選擇"
+                            ]
                         }
                     }
-		}
+                },
+                {
+                    "name": "全買",
+                    "pipeline_override": {
+                        "一般購買": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "expected": [
+                                        "全部"
+                                    ]
+                                }
+                            },
+                            "action": {
+                                "type": "Click",
+                                "param": {
+                                    "target": [
+                                        919,
+                                        169,
+                                        1,
+                                        1
+                                    ]
+                                }
+                            }
+                        },
+                        "重置確認": {
+                            "next": [
+                                "全部選擇"
+                            ]
+                        }
+                    }
+                }
             ]
         },
         "地下城角色碎片購買項": {
@@ -139,7 +178,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/純_聖誕.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/純_聖誕.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -150,7 +193,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/杏奈_海盜.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/杏奈_海盜.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -161,7 +208,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/鈴奈_萬聖節.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/鈴奈_萬聖節.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -172,7 +223,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/克蘿依_聖學祭.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/克蘿依_聖學祭.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -183,7 +238,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/步未.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/步未.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -194,7 +253,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/茉莉.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/茉莉.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -205,7 +268,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/美里.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/美里.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -216,7 +283,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/鈴.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/鈴.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -227,7 +298,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/凱留.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/凱留.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -238,7 +313,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/優花梨.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/優花梨.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -249,7 +328,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/茜里.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/茜里.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -260,7 +343,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/空花.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/空花.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -271,7 +358,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/深月.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/深月.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -282,7 +373,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/真步.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/真步.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -293,7 +388,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/望.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/望.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -309,7 +408,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/栞_遊俠.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/栞_遊俠.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -320,7 +423,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/優衣_夏日.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/優衣_夏日.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -331,7 +438,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/璃乃_聖誕節.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/璃乃_聖誕節.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -342,7 +453,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/碧_工作服.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/碧_工作服.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -353,7 +468,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/七七香.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/七七香.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -364,7 +483,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/日和.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/日和.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -375,7 +498,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/禊.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/禊.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -386,7 +513,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/珠希.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/珠希.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -397,7 +528,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/莫妮卡.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/莫妮卡.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -408,7 +543,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/璃乃.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/璃乃.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -424,7 +563,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/千歌_夏日.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/千歌_夏日.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -435,7 +578,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/真琴_灰姑娘.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/真琴_灰姑娘.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -446,7 +593,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/紡希.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/紡希.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -457,7 +608,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/鈴奈.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/鈴奈.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -468,7 +623,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/宮子.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/宮子.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -479,7 +638,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/香織.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/香織.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -490,7 +653,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/初音.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/初音.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -501,7 +668,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/杏奈.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/杏奈.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -517,7 +688,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/綾音_探險.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/綾音_探險.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -528,7 +703,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/美咲_舞台.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/美咲_舞台.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -539,7 +718,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/咲戀_聖誕節.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/咲戀_聖誕節.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -550,7 +733,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/鈴莓.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/鈴莓.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -561,7 +748,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/依里.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/依里.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -572,7 +763,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/千歌.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/千歌.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -583,7 +778,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/真琴.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/真琴.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -594,7 +793,11 @@
                         "識別碎片": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["role/伊緒.png"] }
+                                "param": {
+                                    "template": [
+                                        "role/伊緒.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -604,32 +807,50 @@
         "詞條選擇": {
             "type": "select",
             "cases": [
-                { "name": "貫通5" },
+                {
+                    "name": "貫通5"
+                },
                 {
                     "name": "貫通3",
                     "pipeline_override": {
                         "判斷第一格數值": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["數值3.png"] }
+                                "param": {
+                                    "template": [
+                                        "數值3.png"
+                                    ]
+                                }
                             }
                         },
                         "判斷第二格數值": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["數值3.png"] }
+                                "param": {
+                                    "template": [
+                                        "數值3.png"
+                                    ]
+                                }
                             }
                         },
                         "判斷第三格數值": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["數值3.png"] }
+                                "param": {
+                                    "template": [
+                                        "數值3.png"
+                                    ]
+                                }
                             }
                         },
                         "判斷第四格數值": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["數值3.png"] }
+                                "param": {
+                                    "template": [
+                                        "數值3.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -640,49 +861,81 @@
                         "判斷第一格詞條": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["TP上升.png"] }
+                                "param": {
+                                    "template": [
+                                        "TP上升.png"
+                                    ]
+                                }
                             }
                         },
                         "判斷第一格數值": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["數值3.png"] }
+                                "param": {
+                                    "template": [
+                                        "數值3.png"
+                                    ]
+                                }
                             }
                         },
                         "判斷第二格詞條": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["TP上升.png"] }
+                                "param": {
+                                    "template": [
+                                        "TP上升.png"
+                                    ]
+                                }
                             }
                         },
                         "判斷第二格數值": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["數值3.png"] }
+                                "param": {
+                                    "template": [
+                                        "數值3.png"
+                                    ]
+                                }
                             }
                         },
                         "判斷第三格詞條": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["TP上升.png"] }
+                                "param": {
+                                    "template": [
+                                        "TP上升.png"
+                                    ]
+                                }
                             }
                         },
                         "判斷第三格數值": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["數值3.png"] }
+                                "param": {
+                                    "template": [
+                                        "數值3.png"
+                                    ]
+                                }
                             }
                         },
                         "判斷第四格詞條": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["TP上升.png"] }
+                                "param": {
+                                    "template": [
+                                        "TP上升.png"
+                                    ]
+                                }
                             }
                         },
                         "判斷第四格數值": {
                             "recognition": {
                                 "type": "TemplateMatch",
-                                "param": { "template": ["數值3.png"] }
+                                "param": {
+                                    "template": [
+                                        "數值3.png"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -692,12 +945,16 @@
         "商店刷新次數": {
             "type": "select",
             "cases": [
-                { "name": "不刷新" },
+                {
+                    "name": "不刷新"
+                },
                 {
                     "name": "無限刷新",
                     "pipeline_override": {
                         "刷新次數": {
-                            "next": ["無限刷新"]
+                            "next": [
+                                "無限刷新"
+                            ]
                         }
                     }
                 }
