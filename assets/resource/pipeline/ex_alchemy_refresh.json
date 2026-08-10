@@ -1,0 +1,516 @@
+{
+    "第二格結果確定": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "結果確定.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "第二格上鎖"
+        ]
+    },
+    "第三格結果確定": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "結果確定.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "第三格上鎖"
+        ]
+    },
+    "第四格結果確定": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "結果確定.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "第四格上鎖"
+        ]
+    },
+    "判斷第一格數值": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    703,
+                    513,
+                    256,
+                    38
+                ],
+                "template": [
+                    "數值5.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第一格是否已鎖",
+            "第一格結果確定"
+        ]
+    },
+    "判斷第二格數值": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    961,
+                    513,
+                    250,
+                    39
+                ],
+                "template": [
+                    "數值5.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第二格是否已鎖",
+            "第二格結果確定"
+        ]
+    },
+    "判斷第三格數值": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    703,
+                    549,
+                    256,
+                    38
+                ],
+                "template": [
+                    "數值5.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第三格是否已鎖",
+            "第三格結果確定"
+        ]
+    },
+    "判斷第四格數值": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    957,
+                    549,
+                    256,
+                    38
+                ],
+                "template": [
+                    "數值5.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第四格是否已鎖",
+            "第四格結果確定"
+        ]
+    },
+    "究極鍊成詞條": {
+        "next": [
+            "開始鍊成"
+        ]
+    },
+    "開始鍊成": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "鍊成.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "確定鍊成"
+        ]
+    },
+    "確定鍊成": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "確認.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    99,
+                    7,
+                    -201,
+                    -17
+                ]
+            }
+        },
+        "next": [
+            "加速鍊成"
+        ]
+    },
+    "識別結果": {
+        "next": [
+            "判斷第一格詞條",
+            "判斷第二格詞條",
+            "判斷第三格詞條",
+            "判斷第四格詞條",
+            "再次鍊成"
+        ]
+    },
+    "判斷第一格詞條": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    703,
+                    513,
+                    256,
+                    38
+                ],
+                "template": [
+                    "貫通.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第一格數值",
+            "再次鍊成"
+        ]
+    },
+    "判斷第一格是否已鎖": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    819,
+                    515,
+                    33,
+                    34
+                ],
+                "template": [
+                    "貫通上鎖.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第二格詞條",
+            "判斷第三格詞條",
+            "判斷第四格詞條",
+            "再次鍊成"
+        ]
+    },
+    "第一格上鎖": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    152,
+                    310,
+                    48,
+                    39
+                ],
+                "template": [
+                    "詞條未上鎖.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    172,
+                    326,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "第一格結果確定": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "結果確定.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "第一格上鎖"
+        ]
+    },
+    "判斷第二格詞條": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    961,
+                    513,
+                    250,
+                    39
+                ],
+                "template": [
+                    "貫通.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第二格數值",
+            "再次鍊成"
+        ]
+    },
+    "判斷第三格詞條": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    703,
+                    549,
+                    256,
+                    38
+                ],
+                "template": [
+                    "貫通.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第三格數值",
+            "再次鍊成"
+        ]
+    },
+    "判斷第四格詞條": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    957,
+                    549,
+                    256,
+                    38
+                ],
+                "template": [
+                    "貫通.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第四格數值",
+            "再次鍊成"
+        ]
+    },
+    "再次鍊成": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "再次鍊成.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    933,
+                    646,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "確定鍊成"
+        ]
+    },
+    "加速鍊成": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    630,
+                    421,
+                    1,
+                    1
+                ]
+            }
+        },
+        "repeat": 3,
+        "next": [
+            "識別結果"
+        ]
+    },
+    "判斷第二格是否已鎖": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1063,
+                    514,
+                    48,
+                    35
+                ],
+                "template": [
+                    "貫通上鎖.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第三格詞條",
+            "判斷第四格詞條",
+            "再次鍊成"
+        ]
+    },
+    "判斷第三格是否已鎖": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    816,
+                    551,
+                    37,
+                    36
+                ],
+                "template": [
+                    "貫通上鎖.png"
+                ]
+            }
+        },
+        "next": [
+            "判斷第四格詞條",
+            "再次鍊成"
+        ]
+    },
+    "判斷第四格是否已鎖": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1075,
+                    550,
+                    34,
+                    37
+                ],
+                "template": [
+                    "貫通上鎖.png"
+                ]
+            }
+        },
+        "next": [
+            "再次鍊成"
+        ]
+    },
+    "第二格上鎖": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    412,
+                    314,
+                    39,
+                    34
+                ],
+                "template": [
+                    "詞條未上鎖.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    428,
+                    330,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "第三格上鎖": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    152,
+                    349,
+                    45,
+                    36
+                ],
+                "template": [
+                    "詞條未上鎖.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    173,
+                    366,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "第四格上鎖": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    413,
+                    350,
+                    37,
+                    35
+                ],
+                "template": [
+                    "詞條未上鎖.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    429,
+                    369,
+                    1,
+                    1
+                ]
+            }
+        }
+    }
+}

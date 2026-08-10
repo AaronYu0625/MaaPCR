@@ -33,7 +33,15 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": [
+                    780,
+                    632,
+                    1,
+                    1
+                ]
+            }
         },
         "next": [
             "購買確認3"
@@ -52,14 +60,14 @@
             "type": "Click",
             "param": {
                 "target": [
-                    647,
-                    640,
+                    632,
+                    632,
                     1,
                     1
                 ]
             }
         },
-        "post_delay": 1200,
+        "post_delay": 1000,
         "next": [
             "刷新次數"
         ]
