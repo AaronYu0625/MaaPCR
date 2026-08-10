@@ -1,10 +1,10 @@
-name: 其他议题（使用中文）
-description: 提出问题，而不是 Bug 反馈或需求建议
+name: 其他議題（使用中文）
+description: 提出問題，而不是 Bug 反饋或需求建議
 labels: ["question"]
 body:
   - type: textarea
     id: describe
     attributes:
-      label: 说说你遇到的问题？
+      label: 說說你遇到的問題？
     validations:
       required: false

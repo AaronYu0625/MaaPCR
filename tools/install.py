@@ -141,10 +141,26 @@ def install_agent():
     )
 
 
+def rename_mfaa():
+    # Windows 執行檔
+    old_exe = install_path / "MFAAvalonia.exe"
+    new_exe = install_path / "MaaPCR.exe"
+    if old_exe.exists():
+        old_exe.rename(new_exe)
+        print(f"Renamed {old_exe.name} -> {new_exe.name}")
+
+    # Linux / macOS 無副檔名的執行檔
+    old_bin = install_path / "MFAAvalonia"
+    new_bin = install_path / "MaaPCR"
+    if old_bin.exists():
+        old_bin.rename(new_bin)
+        print(f"Renamed {old_bin.name} -> {new_bin.name}")
+            
+            
 if __name__ == "__main__":
     install_deps()
     install_resource()
     install_chores()
     install_agent()
-
+    rename_mfaa()
     print(f"Install to {install_path} successfully.")
