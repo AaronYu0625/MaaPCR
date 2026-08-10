@@ -142,18 +142,19 @@ def install_agent():
 
 
 def rename_mfaa():
-    old_prefix = "MFAAvalonia"
-    new_prefix = "MaaPCR"
-    
-    # .NET 程式主執行檔與相關配置檔必須同步改名
-    extensions = ["", ".exe", ".dll", ".deps.json", ".runtimeconfig.json"]
-    
-    for ext in extensions:
-        old_file = install_path / f"{old_prefix}{ext}"
-        new_file = install_path / f"{new_prefix}{ext}"
-        if old_file.exists():
-            old_file.rename(new_file)
-            print(f"Renamed {old_file.name} -> {new_file.name}")
+    # Windows 執行檔
+    old_exe = install_path / "MFAAvalonia.exe"
+    new_exe = install_path / "MaaPCR.exe"
+    if old_exe.exists():
+        old_exe.rename(new_exe)
+        print(f"Renamed {old_exe.name} -> {new_exe.name}")
+
+    # Linux / macOS 無副檔名的執行檔
+    old_bin = install_path / "MFAAvalonia"
+    new_bin = install_path / "MaaPCR"
+    if old_bin.exists():
+        old_bin.rename(new_bin)
+        print(f"Renamed {old_bin.name} -> {new_bin.name}")
             
             
 if __name__ == "__main__":
