@@ -1,8 +1,8 @@
 {
     "interface_version": 2,
     "name": "MaaPCR",
-    "description": "這是一個使用 MaaFramework 建立的新專案。",
-    "license": "MIT",
+    "description": "基於 MaaFramework 所提供的項目模板，由AaronYu0625開發的Maa公主連結小助手。",
+    "license": "./LICENSE",
     "welcome": "首次使用！歡迎使用 MaaPCR!",
     "github": "https://github.com/AaronYu0625/MaaPCR.git",
     "version": "v1.0.1-beta",
@@ -15,7 +15,7 @@
     ],
     "resource": [
         {
-            "name": "台服",
+            "name": "繁中服(台服)",
             "path": [
                 "./resource"
             ]
@@ -63,7 +63,7 @@
             ]
         },
         {
-            "name": "小工具-究極煉成刷詞條(需煉成頁面)",
+            "name": "EX裝備刷詞條(需於究極鍊成頁面)",
             "entry": "究極鍊成詞條",
             "option": [
                 "詞條選擇"
