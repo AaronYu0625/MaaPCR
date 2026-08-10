@@ -29,9 +29,9 @@ body:
     attributes:
       label: Version
       description: >-
-        請提供 MXX 版本
+        請提供 MaaPCR 版本
       placeholder: |
-        MXX Version:
+        MaaPCR Version:
     validations:
       required: true
   - type: textarea
@@ -39,14 +39,14 @@ body:
     attributes:
       label: 日誌和配置檔案
       description: |
-        **請在關閉 MXX 後，上傳以下 3 個檔案：**
+        **請在關閉 MaaPCR 後，上傳以下 3 個檔案：**
           1. `debug` 資料夾中的 `maa.log` `maa.bak.log` 日誌檔案，並說明問題出現的大致時間點
           2. `config` 資料夾中的 `maa_pi_config.json`(MaaPiCli) 配置檔案
 
         如果你在使用 MacBook，請點選螢幕左上角的“檔案”，點選“開啟日誌資料夾”
         **請直接將完整的檔案拖拽進來，而非自己裁切或複製的片段；若檔案體積過大可壓縮後再上傳**
       placeholder: |
-        請確認上傳檔案前已關閉 MXX
+        請確認上傳檔案前已關閉 MaaPCR
     validations:
       required: true
   - type: textarea
@@ -66,8 +66,8 @@ body:
       description: |
         `debug` 目錄下按功能分類的資料夾內，有一些自動截圖的錯誤圖片，若有相關的，請一併打包上傳
 
-        可上傳螢幕截圖或錄製以幫助解釋你的問題，包括但不限於 MXX 軟體截圖、遊戲畫面截圖、
-        MXX debug 截圖（`debug/vision` 路徑圖片，在修改 `config/maa_option.json` 中 `save_draw` 為 `true` 後再次執行 MXX 獲取）
+        可上傳螢幕截圖或錄製以幫助解釋你的問題，包括但不限於 MaaPCR 軟體截圖、遊戲畫面截圖、
+        MaaPCR debug 截圖（`debug/vision` 路徑圖片，在修改 `config/maa_option.json` 中 `save_draw` 為 `true` 後再次執行 MaaPCR 獲取）
         若是**識別相關問題**，請儘可能提供模擬器自帶的截圖工具擷取的無遮擋的**原圖**（或透過 adb 擷取原圖）
         用其他的工具（如QQ/微信）擷取的圖片包含視窗邊框且長寬比、解析度不固定，不利於我們排除bug
         若檔案體積過大可壓縮後再上傳
