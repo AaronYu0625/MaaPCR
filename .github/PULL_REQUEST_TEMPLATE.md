@@ -1,21 +1,21 @@
 # Pull Request
 
-提交前请阅读 [PR 规范](../docs/zh_cn/develop/pull_request_guidelines.md)。
+提交前請閱讀 [PR 規範](../docs/zh_cn/develop/pull_request_guidelines.md)。
 
-## 关联 Issue
+## 關聯 Issue
 
-<!-- Closes #123 / Fixes #123 / Related #123；没有 Issue 时请说明需求来源。 -->
+<!-- Closes #123 / Fixes #123 / Related #123；沒有 Issue 時請說明需求來源。 -->
 
-## 变更摘要
+## 變更摘要
 
-<!-- 用 2～5 条 bullet 说明改了什么。 -->
+<!-- 用 2～5 條 bullet 說明改了什麼。 -->
 
-## 验证
+## 驗證
 
-<!-- 请写清楚执行了什么验证、结果如何。不要只写“已测试”。 -->
+<!-- 請寫清楚執行了什麼驗證、結果如何。不要只寫“已測試”。 -->
 
-- [ ] 我已阅读并遵守 [PR 规范](../docs/zh_cn/develop/pull_request_guidelines.md)
+- [ ] 我已閱讀並遵守 [PR 規範](../docs/zh_cn/develop/pull_request_guidelines.md)
 
-## 截图 / 日志 / 说明
+## 截圖 / 日志 / 說明
 
-<!-- 涉及界面、资源识别、工作流失败或 Bug 修复时，请提供截图、日志、Actions 链接或复现步骤。 -->
+<!-- 涉及界面、資源識別、工作流失敗或 Bug 修復時，請提供截圖、日志、Actions 鏈接或復現步驟。 -->
